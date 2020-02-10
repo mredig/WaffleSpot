@@ -9,4 +9,8 @@ public func routes(_ router: Router) throws {
 		let message = Message(id: UUID(), username: "@mha", content: "Hello!", date: Date())
 		return message
 	}
+
+	router.get { req -> Future<View> in
+		return try req.view().render("home")
+	}
 }
