@@ -5,7 +5,8 @@ import Vapor
 ///
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
 public func routes(_ router: Router) throws {
-    router.get("hello") { req in
-        return "Hello, world!"
-    }
+	router.get("send") { req -> Message in
+		let message = Message(id: UUID(), username: "@mha", content: "Hello!", date: Date())
+		return message
+	}
 }
